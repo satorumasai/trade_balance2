@@ -64,6 +64,7 @@
     "import plotly.express as px\n",
     "import pandas as pd\n",
     "import os\n",
+    "import dash_html_components as html\n",
     "\n",
     "df = pd.read_csv(\"2024BL.csv\")\n",
     "\n",
@@ -72,7 +73,7 @@
     "server = app.server\n",
     "\n",
     "app.layout = html.Div([\n",
-    "    html.H1(\"ドロップダウンで国を選択\"),\n",
+    "    html.H1(children=\"ドロップダウンで国を選択\"),\n",
     "    dcc.Dropdown(\n",
     "        id='city-dropdown',\n",
     "        options=[{'label': country, 'value': country} for country in df['国'].unique()],\n",
@@ -114,8 +115,7 @@
     "    return fig\n",
     "\n",
     "if __name__ == '__main__':\n",
-    "    port = int(os.environ.get('PORT', 10000))\n",
-    "    app.run(host='0.0.0.0', port=port)\n"
+    "    app.run_server(debug=True)\n"
    ]
   },
   {
