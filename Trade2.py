@@ -115,7 +115,8 @@
     "    return fig\n",
     "\n",
     "if __name__ == '__main__':\n",
-    "    app.run_server(debug=True)\n"
+    "    app.run_server(debug=True)\n",
+    "    server = app.server"
    ]
   },
   {
